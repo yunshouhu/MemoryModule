@@ -1,5 +1,7 @@
 extern "C" {
 
+#define  SAMPLEDLL_EXPORTS 1
+
 #ifdef SAMPLEDLL_EXPORTS
 #define SAMPLEDLL_API __declspec(dllexport)
 #else

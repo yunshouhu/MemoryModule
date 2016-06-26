@@ -13,7 +13,9 @@
 
 typedef int (*addNumberProc)(int, int);
 
-#define DLL_FILE TEXT("..\\SampleDLL\\SampleDLL.dll")
+//#define DLL_FILE TEXT("..\\SampleDLL\\SampleDLL.dll")
+#define DLL_FILE TEXT("SampleDLL.dll")
+
 
 void LoadFromFile(void)
 {
@@ -43,6 +45,8 @@ void LoadFromFile(void)
     LoadString(handle, 20, buffer, sizeof(buffer));
     _tprintf(_T("String2: %s\n"), buffer);
 
+	_tprintf(_T("使用pchunter查看加载的进程模块\n"));
+	getchar();
     FreeLibrary(handle);
 }
 
@@ -123,6 +127,9 @@ void LoadFromMemory(void)
 
     MemoryLoadString(handle, 20, buffer, sizeof(buffer));
     _tprintf(_T("String2: %s\n"), buffer);
+
+	_tprintf(_T("使用pchunter查看加载的进程模块\n"));
+	getchar();
 
     MemoryFreeLibrary(handle);
 
@@ -273,6 +280,10 @@ void TestCustomAllocAndFree(void)
     _tprintf(_T("Test cleanup after MemoryLoadLibraryEx with failing allocation function\n"));
     TestCleanupAfterFailingAllocation(data, size);
     _tprintf(_T("Test custom free function after MemoryLoadLibraryEx\n"));
+
+	_tprintf(_T("使用pchunter查看加载的进程模块\n"));
+	getchar();
+
     TestFreeAfterDefaultAlloc(data, size);
 
     free(data);
